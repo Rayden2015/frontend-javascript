@@ -15,12 +15,12 @@ interface Director extends Teacher {
 
 // Interface for the printTeacher function
 interface printTeacherFunction {
-  (firstName: string, lastName: string): string;
+  ({ firstName, lastName }: { firstName: string; lastName: string }): string;
 }
 
 // printTeacher function implementation
-function printTeacher(firstName: string, lastName: string): string {
-  return firstName[0] + '. ' + lastName;
+function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
+  return `${firstName[0]}. ${lastName}`;
 }
 
 // Example usage as specified in the assignment
@@ -79,6 +79,6 @@ const director2: Director = {
 console.log(director2);
 
 // Test the printTeacher function
-console.log('printTeacher("John", "Doe"):', printTeacher("John", "Doe"));
-console.log('printTeacher("Jane", "Smith"):', printTeacher("Jane", "Smith"));
-console.log('printTeacher("Bob", "Johnson"):', printTeacher("Bob", "Johnson"));
+console.log('printTeacher({firstName: "John", lastName: "Doe"}):', printTeacher({firstName: "John", lastName: "Doe"}));
+console.log('printTeacher({firstName: "Jane", lastName: "Smith"}):', printTeacher({firstName: "Jane", lastName: "Smith"}));
+console.log('printTeacher({firstName: "Bob", lastName: "Johnson"}):', printTeacher({firstName: "Bob", lastName: "Johnson"}));
