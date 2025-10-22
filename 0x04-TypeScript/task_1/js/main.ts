@@ -1,11 +1,11 @@
-// Teacher interface with readonly properties and index signature
+// Teacher interface definition
 interface Teacher {
   readonly firstName: string;
   readonly lastName: string;
   fullTimeEmployee: boolean;
   yearsOfExperience?: number;
   location: string;
-  [key: string]: any; // Index signature for additional properties
+  [key: string]: any; // Allow any additional properties
 }
 
 // Directors interface that extends Teacher
@@ -13,7 +13,7 @@ interface Directors extends Teacher {
   numberOfReports: number;
 }
 
-// Example usage as specified
+// Example usage as specified in the assignment
 const teacher3: Teacher = {
   firstName: 'John',
   fullTimeEmployee: false,
@@ -31,17 +31,15 @@ const teacher1: Teacher = {
   fullTimeEmployee: true,
   yearsOfExperience: 5,
   location: 'New York',
-  department: 'Mathematics',
-  salary: 75000
 };
 
 const teacher2: Teacher = {
   firstName: 'Bob',
   lastName: 'Johnson',
   fullTimeEmployee: true,
-  location: 'Chicago',
-  isActive: true,
-  subjects: ['Physics', 'Chemistry']
+  location: 'Paris',
+  department: 'Mathematics',
+  salary: 50000,
 };
 
 console.log('Teacher 1:', teacher1);
@@ -56,18 +54,4 @@ const director1: Directors = {
   numberOfReports: 17,
 };
 
-console.log('Director 1:', director1);
-
-// Additional director example
-const director2: Directors = {
-  firstName: 'Sarah',
-  lastName: 'Wilson',
-  location: 'New York',
-  fullTimeEmployee: true,
-  yearsOfExperience: 10,
-  numberOfReports: 25,
-  department: 'Engineering',
-  budget: 500000
-};
-
-console.log('Director 2:', director2);
+console.log(director1);
