@@ -1,43 +1,61 @@
-// Interface for the constructor
-interface StudentConstructor {
-  new (firstName: string, lastName: string): StudentClass;
+// DirectorInterface interface
+interface DirectorInterface {
+  workFromHome(): string;
+  getToWork(): string;
+  workDirectorTasks(): string;
 }
 
-// Interface for the StudentClass
-interface StudentClass {
-  firstName: string;
-  lastName: string;
-  workOnHomework(): string;
-  displayName(): string;
+// TeacherInterface interface
+interface TeacherInterface {
+  workFromHome(): string;
+  getCoffeeBreak(): string;
+  workTeacherTasks(): string;
 }
 
-// StudentClass implementation
-class StudentClass {
-  firstName: string;
-  lastName: string;
-
-  constructor(firstName: string, lastName: string) {
-    this.firstName = firstName;
-    this.lastName = lastName;
+// Director class implementing DirectorInterface
+class Director implements DirectorInterface {
+  workFromHome(): string {
+    return "Working from home";
   }
 
-  workOnHomework(): string {
-    return "Currently working";
+  getToWork(): string {
+    return "Getting a coffee break";
   }
 
-  displayName(): string {
-    return this.firstName;
+  workDirectorTasks(): string {
+    return "Getting to director tasks";
   }
 }
 
-// Example usage
-const student1: StudentClass = new StudentClass("John", "Doe");
-const student2: StudentClass = new StudentClass("Jane", "Smith");
+// Teacher class implementing TeacherInterface
+class Teacher implements TeacherInterface {
+  workFromHome(): string {
+    return "Cannot work from home";
+  }
 
-console.log("Student 1:");
-console.log("Name:", student1.displayName());
-console.log("Status:", student1.workOnHomework());
+  getCoffeeBreak(): string {
+    return "Cannot have a break";
+  }
 
-console.log("\nStudent 2:");
-console.log("Name:", student2.displayName());
-console.log("Status:", student2.workOnHomework());
+  workTeacherTasks(): string {
+    return "Getting to work";
+  }
+}
+
+// createEmployee function
+function createEmployee(salary: number | string): Director | Teacher {
+  if (typeof salary === 'number' && salary < 500) {
+    return new Teacher();
+  } else {
+    return new Director();
+  }
+}
+
+// Test the createEmployee function
+const employee1 = createEmployee(200);
+const employee2 = createEmployee(1000);
+const employee3 = createEmployee('$500');
+
+console.log(employee1 instanceof Teacher ? 'Teacher' : 'Director');
+console.log(employee2 instanceof Teacher ? 'Teacher' : 'Director');
+console.log(employee3 instanceof Teacher ? 'Teacher' : 'Director');
