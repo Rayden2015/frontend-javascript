@@ -8,8 +8,8 @@ interface Teacher {
   [key: string]: any; // Allow any additional properties
 }
 
-// Directors interface that extends Teacher
-interface Directors extends Teacher {
+// Director interface that extends Teacher
+interface Director extends Teacher {
   numberOfReports: number;
 }
 
@@ -45,8 +45,8 @@ const teacher2: Teacher = {
 console.log('Teacher 1:', teacher1);
 console.log('Teacher 2:', teacher2);
 
-// Directors interface example
-const director1: Directors = {
+// Director interface example
+const director1: Director = {
   firstName: 'John',
   lastName: 'Doe',
   location: 'London',
@@ -57,7 +57,7 @@ const director1: Directors = {
 console.log(director1);
 
 // Additional director example to demonstrate the interface
-const director2: Directors = {
+const director2: Director = {
   firstName: 'Sarah',
   lastName: 'Wilson',
   location: 'New York',
