@@ -55,3 +55,15 @@ const director1: Directors = {
 };
 
 console.log(director1);
+
+// Additional director example to demonstrate the interface
+const director2: Directors = {
+  firstName: 'Sarah',
+  lastName: 'Wilson',
+  location: 'New York',
+  fullTimeEmployee: true,
+  yearsOfExperience: 10,
+  numberOfReports: 25,
+};
+
+console.log(director2);
