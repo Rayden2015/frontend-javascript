@@ -65,6 +65,18 @@ function executeWork(employee: Director | Teacher): string {
   }
 }
 
+// String literal type for Subjects
+type Subjects = 'Math' | 'History';
+
+// teachClass function
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  } else {
+    return 'Teaching History';
+  }
+}
+
 // Test the createEmployee function
 const employee1 = createEmployee(200);
 const employee2 = createEmployee(1000);
@@ -77,3 +89,7 @@ console.log(employee3 instanceof Teacher ? 'Teacher' : 'Director');
 // Test the executeWork function
 console.log(executeWork(createEmployee(200)));
 console.log(executeWork(createEmployee(1000)));
+
+// Test the teachClass function
+console.log(teachClass('Math'));
+console.log(teachClass('History'));
