@@ -20,7 +20,7 @@ interface printTeacherFunction {
 
 // printTeacher function implementation
 function printTeacher(firstName: string, lastName: string): string {
-  return `${firstName[0]}. ${lastName}`;
+  return firstName[0] + '. ' + lastName;
 }
 
 // Example usage as specified in the assignment
